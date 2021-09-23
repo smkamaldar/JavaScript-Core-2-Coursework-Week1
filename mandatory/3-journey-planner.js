@@ -27,7 +27,10 @@
 */
 
 function journeyPlanner(locations, transportMode) {
-  
+  // ["Angel","London Bridge","Tower Bridge","Greenwich"]
+  return Object.keys(locations).filter((destination) => {
+    return locations[destination].includes(transportMode);
+  });
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
@@ -35,6 +38,7 @@ function journeyPlanner(locations, transportMode) {
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
+
 const londonLocations = {
     "Angel": ["tube", "bus"],
     "London Bridge": ["tube", "river boat"],

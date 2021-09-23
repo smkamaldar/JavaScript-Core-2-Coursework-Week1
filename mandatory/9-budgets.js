@@ -16,8 +16,25 @@ Should give return the answer of 62600.
 
 **/
 
+// function getBudgets(peopleArray) {
+//   //  this condition is for test1, if peopleArray is empty then return 0
+//     if(!peopleArray.length){ 
+//       return 0 ;
+//     }
+//     // first I tried without map method, I suppoed to get result, but it doesnt work,
+//     // so I used map to make an array of budgets.
+//     let sum=peopleArray.map(person=>person.budget).
+//     reduce((sum,budget)=>sum + budget);
+//    return sum ;
+// }
+
+
+// I ve just used initialValue(0) for sum so now is working without map method.
 function getBudgets(peopleArray) {
-}
+  let sum = peopleArray.reduce((sum,person)=>sum + person.budget,0)
+  return sum
+ }
+
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 9-budgets.js`

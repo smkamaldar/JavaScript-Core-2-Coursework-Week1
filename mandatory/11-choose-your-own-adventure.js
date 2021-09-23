@@ -57,6 +57,7 @@ let game = {
     // object for the correct room.
     //
     // Hint: the only valid rooms are "hall", "classroom" and "library".
+   this.currentRoom = rooms[roomName];
   },
 
   move: function (direction) {
@@ -66,7 +67,16 @@ let game = {
     //
     // Hint: the room objects have north/east/south/west methods which return
     // a new room object that is in the relevant direction.
-  },
+// *********************************************************************************************
+    // this.currentRoom[direction] returns a function
+    // so that function need to be run.so I kept it in a variable
+    // now I can easily call it.
+    // if my function returns a room so then move to that room
+    // otherwise do not change the currentroom (do not move)
+    const moveMethod = this.currentRoom[direction];
+    this.currentRoom =  moveMethod() ? moveMethod() : this.currentRoom ;
+
+  }
 };
 
 /*
@@ -145,7 +155,7 @@ function start() {
 }
 
 function play(method) {
-  if (!game.currentRoom?.name) {
+  if (!game.currentRoom.name) {
     throw new Error(
       `It looks like the game isn't quite right! Make sure your \`${method}\` method is correct`
     );
